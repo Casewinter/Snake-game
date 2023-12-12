@@ -10,35 +10,12 @@ class Snake {
         this.eatState = false
         this.snake = [
             {
-                x: 80,
-                y: 200,
-                width: this.size,
-                height: this.size
-            },
-            {
-                x: 120,
-                y: 200,
-                width: this.size,
-                height: this.size
-            },
-            {
-                x: 160,
-                y: 200,
-                width: this.size,
-                height: this.size
-            },
-            {
-                x: 200,
-                y: 200,
-                width: this.size,
-                height: this.size
-            },
-            {
                 x: 240,
                 y: 200,
                 width: this.size,
                 height: this.size
             },
+           
             {
                 x: 280,
                 y: 200,
