@@ -20,7 +20,7 @@ class Snake {
         y: 200,
       },
     ];
-    this.direction;
+    this.direction = 'right'
 
     this.lastOrientation = 'x';
     this.orientation;
@@ -36,11 +36,6 @@ class Snake {
     });
   }
   move() {
-    //vamos comparar a orientacao anterior com a nova
-    //e evitar que a cabeca va para a ponta da calda
-    if (this.lastOrientation == this.orientation) {
-      return;
-    }
 
     //pegando o ultimo elemento do array
     //que vai ser a cabeça
@@ -53,28 +48,28 @@ class Snake {
           x: head.x + this.size,
           y: head.y,
         });
-        this.lastOrientation = 'x';
+        this.orientation = 'x';
         break;
       case 'left':
         this.snake.push({
           x: head.x - this.size,
           y: head.y,
         });
-        this.lastOrientation = 'x';
+        this.orientation = 'x';
         break;
       case 'up':
         this.snake.push({
           x: head.x,
           y: head.y - this.size,
         });
-        this.lastOrientation = 'y';
+        this.orientation = 'y';
         break;
       case 'down':
         this.snake.push({
           x: head.x,
           y: head.y + this.size,
         });
-        this.lastOrientation = 'y';
+        this.orientation = 'y';
         break;
     }
   }
@@ -91,19 +86,51 @@ setInterval(() => {
   s.update();
 }, 300);
 
+
+let lastKeyAxies = 'x'
+
 window.addEventListener('keydown', (event) => {
-  switch (event.key) {
-    case 'ArrowRight':
-      s.direction = 'right';
-      break;
-    case 'ArrowLeft':
-      s.direction = 'left';
-      break;
-    case 'ArrowUp':
-      s.direction = 'up';
-      break;
-    case 'ArrowDown':
-      s.direction = 'down';
-      break;
+
+  /*
+  Prevenindo que a cabeca da cobra va para o final da calda.
+  Para isso, verificamos se a tecla apertada esta no mesmo eixo do comando anterior
+  Se for assim, nao executamos o codigo. Se nao, executamos
+  */
+
+  /**
+   * Essa funcao retorna uma string x ou y para o eixo
+   */
+  function takingAxiesPosition(key) {
+    if (key == 'ArrowRight' || key == 'ArrowLeft') {
+      return 'x'
+    } else {
+      return 'y'
+    }
+  }
+
+  const axies = takingAxiesPosition(event.key)
+
+  if (axies != lastKeyAxies) {
+    lastKeyAxies = 'x'
+    switch (event.key) {
+      case 'ArrowRight':
+        s.direction = 'right';
+        break;
+      case 'ArrowLeft':
+        s.direction = 'left';
+        break;
+    }
+  }
+
+  if (axies != lastKeyAxies) {
+    lastKeyAxies = 'y'
+    switch (event.key) {
+      case 'ArrowUp':
+        s.direction = 'up';
+        break;
+      case 'ArrowDown':
+        s.direction = 'down';
+        break;
+    }
   }
 });
