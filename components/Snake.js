@@ -131,7 +131,7 @@ class Snake {
         if (!this.collision()) {
             this.move();
         } else {
-            
+            this.isAlive = false
         }
 
         this.draw()

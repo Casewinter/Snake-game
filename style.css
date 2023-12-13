@@ -21,3 +21,20 @@ main {
   gap: 20px;
 }
 
+dialog{
+top: 45%;
+left: 45%;
+background-color: transparent;
+width: 200px;
+height: 200px;
+border: none;
+}
+
+.play-again{
+  display: flex;
+  justify-content: space-around;
+}
+
+.play-again > p {
+  margin: 10px;
+}

@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Snake game</title>
-  </head>
-  <body>
-      <main>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake game</title>
+</head>
+
+<body>
+  <main>
+    <p>
+      Score: <span id="score"> 0</span>
+    </p>
+    <div style=" overflow: hidden;">
+      <canvas id="myCanvas" width="600" height="600"></canvas>
+    </div>
+  </main>
+
+  <dialog open>
+    <div>
+      <p>
+        Play again?
+      </p>
+      <div class="play-again">
         <p>
-          Score: <span id="score"> 0</span>
+          <span>Yes</span>
         </p>
-      <div style=" overflow: hidden;">
-        <canvas id="myCanvas" width="600" height="600"></canvas>
+        <p>
+          <span>No</span>
+        </p>
       </div>
-    </main>
-    <script type="module" src="/main.js"></script>
-  </body>
+    </div>
+  </dialog>
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>
