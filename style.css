@@ -1,24 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 * {
   margin: 0%;
   padding: 0%;
-}
-
-body {
-  background-color: rgb(29, 29, 29);
+  color: white;
+  font-family:  "Press Start 2P";
 }
 
 canvas {
   background-color: black;
 }
 
-div {
+main {
+  background-color: rgb(29, 29, 29);
   display: flex;
+  flex-direction: column;
+  height: 100vh;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  gap: 20px;
 }
 
-
-*{
-  overflow: hidden;
-}

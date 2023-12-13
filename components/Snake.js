@@ -27,6 +27,8 @@ class Snake {
 
         this.lastOrientation = 'x';
         this.orientation;
+        this.score = 0
+        this.isAlive = true
     }
 
     draw() {
@@ -118,13 +120,20 @@ class Snake {
         if(this.snake.at(-1).x == applePosition.square.x && this.snake.at(-1).y == applePosition.square.y ) {
             applePosition.updatePosition()
             this.eatState = !this.eatState 
+            return true
+          } else {
+            return false
           }
+    
     }
 
     update() {
         if (!this.collision()) {
             this.move();
+        } else {
+            
         }
+
         this.draw()
     }
 }

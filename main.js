@@ -1,16 +1,17 @@
 import './style.css';
 import Snake from './components/Snake';
-import Controls from './components/Controls'; 
+import Controls from './components/Controls';
 import Apple from './components/Apple';
 
+let score = 0
+const scorePlayer = document.getElementById('score')
 
 const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 
 const canvasWidth = 600
 const canvasHeight = 600
-const squareSize = 40
-
+const squareSize = 20
 
 const snake = new Snake(ctx, squareSize);
 const apple = new Apple(ctx, squareSize, canvasWidth, snake.snake)
@@ -21,7 +22,7 @@ setInterval(() => {
   ctx.clearRect(0, 0, 600, 600);
   for (let x = 0; x < canvasWidth; x += squareSize) {
     for (let y = 0; y < canvasHeight; y += squareSize) {
-      ctx.fillStyle = '#242424'; 
+      ctx.fillStyle = '#242424';
       ctx.fillRect(x, y, squareSize, squareSize);
       ctx.strokeRect(x, y, squareSize, squareSize);
     }
@@ -31,7 +32,9 @@ setInterval(() => {
   controls.unlockingControlsByNewFrame()
 
   //Se a cobra comer a maçã
-  snake.eat(apple)
-}, 300);
-
+  if (snake.eat(apple)) {
+    score++
+    scorePlayer.innerText = score
+  }
+}, 100);
 
