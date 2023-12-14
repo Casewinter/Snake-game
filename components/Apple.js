@@ -6,8 +6,8 @@ class Apple {
         this.canvasSize = canvasSize
         this.ctx = ctx;
         this.square = {
-            x: 440,
-            y: 440,
+            x: canvasSize - size * 4,
+            y: canvasSize - size * 4,
             width: size,
             height: size
         }
@@ -22,16 +22,18 @@ class Apple {
     updatePosition() {
         const min = this.square.height
         const max = this.canvasSize - this.square.height
-        let newLocationX = Math.floor(Math.random() * 561);
-        let newLocationY = Math.floor(Math.random() * 561);
+        const threshold = this.canvasSize - this.size + 1
+
+        let newLocationX = Math.floor(Math.random() * threshold);
+        let newLocationY = Math.floor(Math.random() * threshold);
 
         if (newLocationX < min || newLocationX > max) {
-            newLocationX = Math.floor(Math.random() * 561);
+            newLocationX = Math.floor(Math.random() * threshold);
 
         }
 
         if (newLocationY < min || newLocationY > max) {
-            newLocationY = Math.floor(Math.random() * 561);
+            newLocationY = Math.floor(Math.random() * threshold);
         }
 
         while (newLocationX % this.size != 0) {

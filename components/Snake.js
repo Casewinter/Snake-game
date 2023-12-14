@@ -1,7 +1,8 @@
 import {collideRect} from '../utils/ultils'
 
 class Snake {
-    constructor(ctx, size) {
+    constructor(ctx, size, border) {
+        this.border = border
         this.ctx = ctx;
         //tamanho em pixels de cada lado da cobra
         this.size = size
@@ -10,14 +11,14 @@ class Snake {
         this.eatState = false
         this.snake = [
             {
-                x: 240,
+                x: 140,
                 y: 200,
                 width: this.size,
                 height: this.size
             },
            
             {
-                x: 280,
+                x: 160,
                 y: 200,
                 width: this.size,
                 height: this.size
@@ -100,8 +101,8 @@ class Snake {
     }
     collision() {
         //Colisao contra as bordas
-        const x = this.snake.at(-1).x + this.size / 2 < 0 || this.snake.at(-1).x + this.size / 2 > 600
-        const y = this.snake.at(-1).y + this.size / 2 < 0 || this.snake.at(-1).y + this.size / 2 > 600
+        const x = this.snake.at(-1).x + this.size / 2 < 0 || this.snake.at(-1).x + this.size / 2 > this.border
+        const y = this.snake.at(-1).y + this.size / 2 < 0 || this.snake.at(-1).y + this.size / 2 > this.border
 
 
         if (x || y) return true

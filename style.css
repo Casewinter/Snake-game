@@ -22,17 +22,22 @@ main {
 }
 
 dialog{
-top: 45%;
-left: 45%;
+top: 50%;
+left: 40%;
 background-color: transparent;
 width: 200px;
 height: 200px;
 border: none;
 }
 
+dialog:focus{
+  outline: none;
+}
+
 .play-again{
   display: flex;
   justify-content: space-around;
+  cursor: pointer;
 }
 
 .play-again > p {
