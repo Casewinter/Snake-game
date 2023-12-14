@@ -9,9 +9,11 @@ const scorePlayer = document.getElementById('score')
 
 const canvasSize = 400
 const canvas = document.getElementById('myCanvas');
-const modal = document.getElementById('modal')
+const restartModal = document.getElementById('restartModal')
+const startModal = document.getElementById('startModal')
 
-const yesButton = document.getElementById('yesButton')
+const restartButton = document.getElementById('yesButton')
+const startButton = document.getElementById('startButton')
 
 
 canvas.width = canvasSize;
@@ -29,7 +31,8 @@ controls.startControls()
 let gameEngine
 
 const startGame = () => {
-  gameEngine = setInterval(Game, 300);
+  startModal.close()
+  gameEngine = setInterval(Game, 150);
 }
 
 function Game() {
@@ -52,13 +55,12 @@ function Game() {
   }
 
   if (!snake.isAlive) {
-    modal.showModal()
+    restartModal.showModal()
     clearInterval(gameEngine)
     gameEngine = null
   }
 }
 
-yesButton.addEventListener('click', restart)
 
 function restart() {
 
@@ -88,9 +90,18 @@ function restart() {
   const controls = new Controls(snake)
   controls.startControls()
 
-  modal.close()
+  restartModal.close()
   startGame()
 
 }
 
-startGame()
+ctx.clearRect(0, 0, canvasSize, canvasSize);
+for (let x = 0; x < canvasSize; x += squareSize) {
+  for (let y = 0; y < canvasSize; y += squareSize) {
+    ctx.fillStyle = '#242424';
+    ctx.fillRect(x, y, squareSize, squareSize);
+    ctx.strokeRect(x, y, squareSize, squareSize);
+  }
+}
+restartButton.addEventListener('click', restart)
+startButton.addEventListener('click', startGame)

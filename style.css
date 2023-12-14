@@ -4,7 +4,7 @@
   margin: 0%;
   padding: 0%;
   color: white;
-  font-family:  "Press Start 2P";
+  font-family: "Press Start 2P";
 }
 
 canvas {
@@ -19,27 +19,53 @@ main {
   justify-content: center;
   align-items: center;
   gap: 20px;
+
 }
 
-dialog{
-top: 50%;
-left: 40%;
-background-color: transparent;
-width: 200px;
-height: 200px;
-border: none;
+dialog {
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 40%;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: transparent;
+  /* Black w/ opacity */
+  border: none;
 }
 
-dialog:focus{
+dialog:focus {
   outline: none;
 }
 
-.play-again{
+dialog>div {
+  margin: auto;
+  width: 300px;
+  display: flex;
+  height: 50px;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+dialog>div>* {
+  text-align: center;
+}
+
+.play-again {
   display: flex;
   justify-content: space-around;
   cursor: pointer;
 }
 
-.play-again > p {
+.play-again>p {
   margin: 10px;
 }

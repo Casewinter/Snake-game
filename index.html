@@ -13,21 +13,30 @@
     <p>
       Score: <span id="score"> 0</span>
     </p>
-    <div style=" overflow: hidden;">
-      <canvas id="myCanvas" ></canvas>
-    </div>
+    <canvas id="myCanvas"></canvas>
   </main>
-
-  <dialog id='modal'>
+  <dialog id='restartModal'>
     <div>
       <p>
         Play again?
       </p>
       <div class="play-again">
         <p>
-          <span id="yesButton" >Yes</span>
+          <span id="yesButton">Yes</span>
         </p>
-       
+
+      </div>
+    </div>
+  </dialog>
+  <dialog id='startModal' open>
+    <div>
+      <p>
+        Start?
+      </p>
+      <div class="play-again">
+        <p>
+          <span id="startButton">Yes</span>
+        </p>
       </div>
     </div>
   </dialog>
